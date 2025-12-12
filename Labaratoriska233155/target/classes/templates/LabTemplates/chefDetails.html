@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chef Details</title>
+</head>
+<body>
+<!-- Dynamically display data -->
+<header>
+    <h1>Chef: <th:block th:text="${chefName}"></th:block></h1>
+</header>
+<section>
+    <h2>Bio: <th:block th:text="${chefBio}"></th:block></h2>
+    <h2>Dishes prepared by this chef:</h2>
+    <ul>
+        <li th:each="dish : ${chefDishes}"><th:block th:text="${dish.getName()} + ' (' + ${dish.getCuisine() + ')'}"></th:block></li>
+    </ul>
+
+    <h2>Return to the list of chefs by clicking <a th:href="@{/listChefs}">here</a></h2>
+    <h2>Want to add another dish to the chef? <a th:href="@{/dishes(chefId=${chefId})}">Click here</a></h2>
+</section>
+</body>
+</html>
